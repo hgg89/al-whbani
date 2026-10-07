@@ -56,6 +56,14 @@
     h2{margin-top:0;color:#0b3b72}.info{display:grid;grid-template-columns:1fr 1fr;gap:12px}.item{background:#f5f8fc;padding:14px;border-radius:12px}.label{font-weight:bold;color:#53657a}
     .social{display:grid;gap:12px}.social a{display:block;text-decoration:none;color:#fff;padding:14px 18px;border-radius:12px;text-align:center;font-weight:bold}.tiktok{background:#111}.instagram{background:linear-gradient(90deg,#833ab4,#fd1d1d,#fcb045)}.facebook{background:#1877f2}
     .profile-link{display:inline-block;background:#0b3b72;color:#fff;text-decoration:none;padding:12px 18px;border-radius:10px;margin-top:14px}
+    .apps{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .app-card{position:relative;overflow:hidden;border-radius:18px;padding:24px;color:#fff;text-decoration:none;min-height:190px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 10px 28px rgba(0,0,0,.12);transition:transform .2s,box-shadow .2s}
+    .app-card:hover{transform:translateY(-4px);box-shadow:0 14px 34px rgba(0,0,0,.18)}
+    .app-quiz{background:linear-gradient(135deg,#0b3b72,#1683d8)}
+    .app-forsan{background:linear-gradient(135deg,#116530,#2e9d59)}
+    .app-icon{font-size:38px;margin-bottom:8px}.app-card h3{margin:0 0 8px;font-size:21px}.app-card p{margin:0;opacity:.95;font-size:15px}
+    .app-button{display:inline-block;align-self:flex-start;margin-top:18px;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);padding:9px 16px;border-radius:10px;font-weight:bold}
+    @media(max-width:600px){.apps{grid-template-columns:1fr}}
     footer{text-align:center;color:#68778a;padding:25px 15px}@media(max-width:600px){.info{grid-template-columns:1fr}.hero h1{font-size:25px}.hero{padding:42px 15px}}
   </style>
 </head>
@@ -81,6 +89,28 @@
     <div class="item"><div class="label">المحافظة</div>تعز</div>
     <div class="item"><div class="label">العزلة</div>الهياجم</div>
     <div class="item"><div class="label">المنطقة</div>وادي السبل</div>
+  </div>
+</section>
+<section class="card">
+  <h2>🚀 تطبيقات الوهباني</h2>
+  <p>اكتشف تطبيقات الوهباني واستمتع بتجارب مميزة — اختر التطبيق الذي تريد فتحه الآن:</p>
+  <div class="apps">
+    <a class="app-card app-quiz" href="https://al-whbani-quiz-2026.web.app" target="_blank" rel="noopener">
+      <div>
+        <div class="app-icon">🎯</div>
+        <h3>تطبيق الوهباني</h3>
+        <p>اختبر معلوماتك، تحدَّ نفسك، واستمتع بتجربة الأسئلة والمسابقات.</p>
+      </div>
+      <span class="app-button">فتح التطبيق ↗</span>
+    </a>
+    <a class="app-card app-forsan" href="https://ai-alfursan-ai.ai.studio" target="_blank" rel="noopener">
+      <div>
+        <div class="app-icon">⚽</div>
+        <h3>نادي الفرسان AI</h3>
+        <p>اكتشف اللاعبين واسأل الذكاء الاصطناعي واحصل على إجابات وتقييمات.</p>
+      </div>
+      <span class="app-button">دخول نادي الفرسان ↗</span>
+    </a>
   </div>
 </section>
 <section class="card">
