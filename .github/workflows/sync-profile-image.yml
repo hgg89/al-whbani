@@ -1,0 +1,45 @@
+name: Sync profile image
+
+on:
+  push:
+    paths:
+      - "profile.html"
+
+permissions:
+  contents: write
+
+jobs:
+  sync-image:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download profile image from ImgBB
+        run: |
+          python - <<'PY'
+          import re
+          import urllib.request
+          from html import unescape
+
+          page = "https://ibb.co/0RYXpJQN"
+          req = urllib.request.Request(page, headers={"User-Agent": "Mozilla/5.0"})
+          html = urllib.request.urlopen(req, timeout=30).read().decode("utf-8", "ignore")
+
+          m = re.search(r'<meta[^>]+property=["\']og:image["\'][^>]+content=["\']([^"\']+)["\']', html, re.I)
+          if not m:
+              m = re.search(r'<meta[^>]+content=["\']([^"\']+)["\'][^>]+property=["\']og:image["\']', html, re.I)
+          if not m:
+              raise SystemExit("Could not find ImgBB og:image")
+
+          image_url = unescape(m.group(1))
+          print("Image:", image_url)
+          urllib.request.urlretrieve(image_url, "profile.jpg")
+          PY
+
+      - name: Commit image
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add profile.jpg
+          git diff --cached --quiet || git commit -m "إضافة صورة الملف الشخصي"
+          git push
